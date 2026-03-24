@@ -32,8 +32,8 @@
   <div class="container-fluid d-flex align-items-center gap-3">
     <a href="#" class="logo">crom<span>ā</span></a>
 
-    <button class="nav-icon-btn d-none d-md-flex align-items-center gap-2" style="font-size:14px;border:1px solid var(--border);border-radius:8px;padding:9px 14px;">
-      <i class="fa fa-bars" style="font-size:16px;"></i> Menu
+    <button class="nav-icon-btn btn btn-outline-secondary d-none d-md-inline-flex align-items-center gap-2 px-3 py-2">
+      <i class="fa fa-bars"></i> Menu
     </button>
 
     <div class="search-wrap d-none d-md-block">
@@ -43,15 +43,15 @@
     </div>
 
     <div class="ms-auto nav-icons">
-      <button class="location-btn">
+      <button class="location-btn btn btn-outline-secondary d-inline-flex align-items-center">
         <i class="fa fa-map-marker-alt"></i>
         <span>Rajkot, 360002</span>
-        <i class="fa fa-pencil-alt" style="font-size:10px;"></i>
+        <i class="fa fa-pencil-alt small"></i>
       </button>
-      <a href="login.html" class="nav-icon-btn" aria-label="Login">
+      <a href="login.html" class="nav-icon-btn btn btn-outline-secondary" aria-label="Login">
         <i class="fa fa-user"></i>
       </a>
-      <button class="nav-icon-btn" onclick="showToast('Cart has 0 items','fa-shopping-cart')">
+      <button class="nav-icon-btn btn btn-outline-secondary" onclick="showToast('Cart has 0 items','fa-shopping-cart')">
         <i class="fa fa-shopping-cart"></i>
         <span class="badge-dot" id="cartCount">0</span>
       </button>
