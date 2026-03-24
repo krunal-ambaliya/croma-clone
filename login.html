@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="simple-auth.css">
+</head>
+<body>
+  <div class="auth-page">
+    <form class="auth-box" action="#">
+      <a href="croma-homepage.html" class="back-btn">← Back</a>
+      <h1>Login</h1>
+      <div class="field-group">
+        <input type="text" id="login-username" placeholder="Email or Phone">
+        <div class="error-text" id="login-username-error"></div>
+      </div>
+      <div class="field-group">
+        <input type="password" id="login-password" placeholder="Password">
+        <div class="error-text" id="login-password-error"></div>
+      </div>
+      <button type="button" onclick="validateLogin()">Login</button>
+      <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+    </form>
+  </div>
+  <script>
+    function validateLogin() {
+      const username = document.getElementById("login-username");
+      const password = document.getElementById("login-password");
+      const usernameError = document.getElementById("login-username-error");
+      const passwordError = document.getElementById("login-password-error");
+
+      usernameError.textContent = username.value.trim() ? "" : "Input can not be empty";
+      passwordError.textContent = password.value.trim() ? "" : "Input can not be empty";
+    }
+  </script>
+</body>
+</html>

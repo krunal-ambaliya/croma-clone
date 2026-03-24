@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="simple-auth.css">
+</head>
+<body>
+  <div class="auth-page">
+    <form class="auth-box" action="#">
+      <a href="croma-homepage.html" class="back-btn">← Back</a>
+      <h1>Sign Up</h1>
+      <div class="field-group">
+        <input type="text" id="signup-username" placeholder="Full Name">
+        <div class="error-text" id="signup-username-error"></div>
+      </div>
+      <div class="field-group">
+        <input type="email" id="signup-email" placeholder="Email">
+        <div class="error-text" id="signup-email-error"></div>
+      </div>
+      <div class="field-group">
+        <input type="password" id="signup-password" placeholder="Password">
+        <div class="error-text" id="signup-password-error"></div>
+      </div>
+      <button type="button" onclick="validateSignup()">Sign Up</button>
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </form>
+  </div>
+  <script>
+    function validateSignup() {
+      const username = document.getElementById("signup-username");
+      const email = document.getElementById("signup-email");
+      const password = document.getElementById("signup-password");
+      const usernameError = document.getElementById("signup-username-error");
+      const emailError = document.getElementById("signup-email-error");
+      const passwordError = document.getElementById("signup-password-error");
+
+      usernameError.textContent = username.value.trim() ? "" : "Input can not be empty";
+      emailError.textContent = email.value.trim() ? "" : "Input can not be empty";
+      passwordError.textContent = password.value.trim() ? "" : "Input can not be empty";
+    }
+  </script>
+</body>
+</html>

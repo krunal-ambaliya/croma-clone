@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Details</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="product-details.css">
+</head>
+<body>
+  <div class="details-page">
+    <header class="details-topbar">
+      <a href="croma-homepage.html" class="back-link"><i class="fa fa-arrow-left"></i> Back</a>
+      <a href="login.html" class="profile-link"><i class="fa fa-user"></i></a>
+    </header>
+
+    <main class="details-card">
+      <section class="details-image-panel">
+        <span class="product-badge" id="productBadge">Top Pick</span>
+        <img id="productImage" src="" alt="Product image">
+      </section>
+
+      <section class="details-info">
+        <p class="mini-label">Product Details</p>
+        <h1 id="productName">Smartphone</h1>
+        <div class="rating-row">
+          <span class="stars" id="productStars">★★★★★</span>
+          <span class="reviews" id="productReviews">(0 reviews)</span>
+        </div>
+        <div class="price-row">
+          <span class="current-price" id="productPrice">₹0</span>
+          <span class="old-price" id="productOldPrice"></span>
+        </div>
+        <p class="desc">
+          Powerful performance, sleek design, and a premium display packed into one smart device.
+          This is a simple reusable product details page for your store layout.
+        </p>
+
+        <div class="highlights">
+          <div class="chip">Fast Delivery</div>
+          <div class="chip">1 Year Warranty</div>
+          <div class="chip">Secure Payment</div>
+        </div>
+
+        <div class="action-row">
+          <button type="button" class="primary-btn">Add to Cart</button>
+          <button type="button" class="secondary-btn">Buy Now</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const productName = params.get("name") || "Product";
+    const productPrice = params.get("price") || "₹0";
+    const productOld = params.get("old") || "";
+    const productImg = params.get("img") || "https://placehold.co/500x500/111827/00e5c3?text=Product";
+    const productReviews = params.get("reviews") || "(0 reviews)";
+    const productStars = params.get("stars") || "★★★★★";
+    const productBadge = params.get("badge") || "Top Pick";
+
+    document.getElementById("productName").textContent = productName;
+    document.getElementById("productPrice").textContent = productPrice;
+    document.getElementById("productOldPrice").textContent = productOld;
+    document.getElementById("productImage").src = productImg;
+    document.getElementById("productImage").alt = productName;
+    document.getElementById("productReviews").textContent = productReviews;
+    document.getElementById("productStars").textContent = productStars;
+    document.getElementById("productBadge").textContent = productBadge;
+  </script>
+</body>
+</html>
