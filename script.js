@@ -46,13 +46,6 @@ function showToast(msg, icon = "fa-check") {
   }, 2200);
 }
 
-// SEARCH
-function handleSearch() {
-  const searchInput = document.getElementById("searchInput");
-  const q = searchInput ? searchInput.value.trim() : "";
-  if (q) showToast(`Searching for "${q}"…`, "fa-search");
-}
-
 // AUTH VALIDATION
 function togglePasswordField(inputId, labelId) {
   const password = document.getElementById(inputId);
@@ -135,16 +128,6 @@ function validateSignupFields() {
 
 // PAGE INIT
 function initSharedControls() {
-  const searchInput = document.getElementById("searchInput");
-  if (searchInput) {
-    searchInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") handleSearch();
-    });
-  }
-
-  const searchBtn = document.getElementById("searchBtn");
-  if (searchBtn) searchBtn.addEventListener("click", handleSearch);
-
   const cartBtn = document.getElementById("cartBtn");
   if (cartBtn) {
     cartBtn.addEventListener("click", () =>
