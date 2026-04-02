@@ -1,25 +1,3 @@
-// HERO SLIDER
-let heroIdx = 0;
-const slides = document.querySelectorAll(".hero-slide");
-const dots = document.querySelectorAll(".hero-dot");
-
-function heroGoTo(n) {
-  if (!slides.length || !dots.length) return;
-  slides[heroIdx].classList.remove("active");
-  dots[heroIdx].classList.remove("active");
-  heroIdx = (n + slides.length) % slides.length;
-  slides[heroIdx].classList.add("active");
-  dots[heroIdx].classList.add("active");
-}
-
-function heroSlide(dir) {
-  heroGoTo(heroIdx + dir);
-}
-
-if (slides.length && dots.length) {
-  setInterval(() => heroSlide(1), 5000);
-}
-
 // SHARED HELPERS
 function scrollRow(id, dir) {
   const el = document.getElementById(id);
