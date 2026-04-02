@@ -8,13 +8,23 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="product-details.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="product-details-body">
   <div class="details-page">
     <header class="details-topbar">
-      <button type="button" class="back-link" onclick="history.back()"><i class="fa fa-arrow-left"></i> Back</button>
-      <a href="login.html" class="profile-link"><i class="fa fa-user"></i></a>
+      <button type="button" class="back-link" id="details-back-btn">
+        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M14.5 5.5L8 12l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+        Back
+      </button>
+      <a href="login.html" class="profile-link" aria-label="Profile">
+        <svg class="icon-svg" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 21a8 8 0 10-16 0" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"></path>
+          <circle cx="12" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2.2"></circle>
+        </svg>
+      </a>
     </header>
 
     <main class="details-card">
@@ -53,24 +63,6 @@
     </main>
   </div>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const productName = params.get("name") || "Product";
-    const productPrice = params.get("price") || "₹0";
-    const productOld = params.get("old") || "";
-    const productImg = params.get("img") || "https://placehold.co/500x500/111827/00e5c3?text=Product";
-    const productReviews = params.get("reviews") || "(0 reviews)";
-    const productStars = params.get("stars") || "★★★★★";
-    const productBadge = params.get("badge") || "Top Pick";
-
-    document.getElementById("productName").textContent = productName;
-    document.getElementById("productPrice").textContent = productPrice;
-    document.getElementById("productOldPrice").textContent = productOld;
-    document.getElementById("productImage").src = productImg;
-    document.getElementById("productImage").alt = productName;
-    document.getElementById("productReviews").textContent = productReviews;
-    document.getElementById("productStars").textContent = productStars;
-    document.getElementById("productBadge").textContent = productBadge;
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

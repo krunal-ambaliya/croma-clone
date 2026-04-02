@@ -1,0 +1,203 @@
+{
+  "exclusives": [
+    {
+      "badge": "39% OFF",
+      "img": "https://media.tatacroma.com/Croma%20Assets/Entertainment/Television/Images/319806_0_4QNiuwHD-9.png",
+      "name": "Croma 127cm (50 inch) 4K Ultra HD LED Smart Google TV 5.0",
+      "price": "₹24,990",
+      "old": "₹40,900",
+      "stars": "★★★★★",
+      "reviews": "(2.4k)",
+      "cartName": "50-inch 4K TV",
+      "minWidth": 240
+    },
+    {
+      "badge": "47% OFF",
+      "img": "https://media.tatacroma.com/Croma%20Assets/Entertainment/Television/Images/301716_0_cmisgc.png",
+      "name": "Croma 80cm (32 inch) HD LED Google TV 5.0 with Alexa Built-in",
+      "price": "₹9,990",
+      "old": "₹19,000",
+      "stars": "★★★★★",
+      "reviews": "(4.1k)",
+      "cartName": "32-inch HD TV",
+      "minWidth": 240
+    },
+    {
+      "badge": "39% OFF",
+      "img": "https://media-ik.croma.com/prod/https://media.tatacroma.com/273359_0_KJ3oEFbpO.png?updatedAt=1762413104063",
+      "name": "Croma 80cm (32 inch) QLED Smart Google TV 5.0 with Dolby Audio",
+      "price": "₹10,990",
+      "old": "₹18,000",
+      "stars": "★★★★☆",
+      "reviews": "(1.8k)",
+      "cartName": "32-inch QLED TV",
+      "minWidth": 240
+    },
+    {
+      "badge": "22% OFF",
+      "img": "https://media.tatacroma.com/Croma%20Assets/Entertainment/Television/Images/251388_8_ciaurn.png",
+      "name": "Croma 109cm (43 inch) LED 4K Ultra HD Smart Google TV",
+      "price": "₹19,490",
+      "old": "₹25,000",
+      "stars": "★★★★★",
+      "reviews": "(3.2k)",
+      "cartName": "43-inch 4K TV",
+      "minWidth": 240
+    },
+    {
+      "badge": "30% OFF",
+      "img": "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Entertainment/Television/Images/315755_0_lpag1g.png?tr=w-640",
+      "name": "Croma 139cm (55 inch) QLED 4K Smart Google TV with Dolby Vision",
+      "price": "₹34,990",
+      "old": "₹49,990",
+      "stars": "★★★★★",
+      "reviews": "(890)",
+      "cartName": "55-inch QLED TV",
+      "minWidth": 240
+    }
+  ],
+  "bestsellers": [
+    {
+      "img": "https://media.tatacroma.com/Croma%20Assets/Entertainment/Television/Images/301716_0_cmisgc.png",
+      "name": "Apple iPhone 15 (128GB) – Black Titanium",
+      "price": "₹69,999",
+      "old": "₹79,900",
+      "save": "Save ₹9,901",
+      "stars": "★★★★★",
+      "reviews": "(12.4k)",
+      "cartName": "iPhone 15",
+      "minWidth": 220
+    },
+    {
+      "img": "https://media.tatacroma.com/Croma%20Assets/Entertainment/Television/Images/319806_0_4QNiuwHD-9.png",
+      "name": "Samsung Galaxy S24 5G (256GB) – Onyx Black",
+      "price": "₹74,999",
+      "old": "₹89,999",
+      "save": "",
+      "stars": "★★★★★",
+      "reviews": "(8.7k)",
+      "cartName": "Samsung Galaxy S24",
+      "minWidth": 220
+    },
+    {
+      "img": "https://media-ik.croma.com/prod/https://media.tatacroma.com/273359_0_KJ3oEFbpO.png?updatedAt=1762413104063",
+      "name": "Apple AirPods Pro (2nd Gen) with MagSafe Case",
+      "price": "₹22,990",
+      "old": "₹26,900",
+      "save": "",
+      "stars": "★★★★★",
+      "reviews": "(9.2k)",
+      "cartName": "AirPods Pro",
+      "minWidth": 220
+    },
+    {
+      "img": "https://media.tatacroma.com/Croma%20Assets/Entertainment/Television/Images/251388_8_ciaurn.png",
+      "name": "Apple MacBook Air M2 (13-inch, 8GB RAM, 256GB SSD)",
+      "price": "₹99,900",
+      "old": "₹1,14,900",
+      "save": "",
+      "stars": "★★★★★",
+      "reviews": "(5.3k)",
+      "cartName": "MacBook Air M2",
+      "minWidth": 220
+    },
+    {
+      "img": "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Entertainment/Television/Images/315755_0_lpag1g.png?tr=w-640",
+      "name": "Sony WH-1000XM5 Wireless Noise Cancelling Headphones",
+      "price": "₹26,990",
+      "old": "₹34,990",
+      "save": "",
+      "stars": "★★★★★",
+      "reviews": "(6.8k)",
+      "cartName": "Sony WH-1000XM5",
+      "minWidth": 220
+    }
+  ],
+  "phones": [
+    {
+      "badge": "HOT",
+      "img": "https://m.media-amazon.com/images/I/41pR0qlI0yL._SY300_SX300_QL70_FMwebp_.jpg",
+      "name": "OnePlus 12 5G (256GB) – Silky Black",
+      "price": "₹64,999",
+      "old": "₹69,999",
+      "stars": "★★★★★",
+      "reviews": "(3.1k)",
+      "cartName": "OnePlus 12",
+      "minWidth": 200
+    },
+    {
+      "badge": "",
+      "img": "https://www.designinfo.in/wp-content/uploads/2024/02/Google-Pixel-8-128GB-Unlocked-Obsidian-1.webp",
+      "name": "Google Pixel 8 5G (128GB) – Obsidian",
+      "price": "₹59,999",
+      "old": "₹75,999",
+      "stars": "★★★★★",
+      "reviews": "(2.4k)",
+      "cartName": "Google Pixel 8",
+      "minWidth": 200
+    },
+    {
+      "badge": "15% OFF",
+      "img": "https://m.media-amazon.com/images/I/41pR0qlI0yL._SY300_SX300_QL70_FMwebp_.jpg",
+      "name": "Redmi Note 13 Pro 5G (256GB) – Aurora Purple",
+      "price": "₹25,999",
+      "old": "₹30,999",
+      "stars": "★★★★☆",
+      "reviews": "(7.8k)",
+      "cartName": "Redmi Note 13 Pro",
+      "minWidth": 200
+    },
+    {
+      "badge": "",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhPTWk7N6GLS9mSgI60n8ouS_JJtOrNE4UyQ&s",
+      "name": "Vivo V30 5G (256GB) – Peacock Green",
+      "price": "₹33,999",
+      "old": "₹39,999",
+      "stars": "★★★★☆",
+      "reviews": "(1.9k)",
+      "cartName": "Vivo V30",
+      "minWidth": 200
+    },
+    {
+      "badge": "NEW",
+      "img": "https://m.media-amazon.com/images/I/41pR0qlI0yL._SY300_SX300_QL70_FMwebp_.jpg",
+      "name": "Samsung Galaxy A55 5G (256GB) – Navy",
+      "price": "₹34,999",
+      "old": "₹38,999",
+      "stars": "★★★★★",
+      "reviews": "(4.5k)",
+      "cartName": "Samsung Galaxy A55",
+      "minWidth": 200
+    }
+  ],
+  "deals": [
+    {
+      "grad": "grad-teal",
+      "img": "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Small%20Appliances/Fans/Images/232311_0_zocKLmb1m.png?updatedAt=1770706572338?tr=w-640",
+      "alt": "Cooler",
+      "title": "Room Coolers",
+      "priceHtml": "Starting at <strong>₹3,999</strong>"
+    },
+    {
+      "grad": "grad-purple",
+      "img": "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Small%20Appliances/Fans/Images/232311_0_zocKLmb1m.png?updatedAt=1770706572338?tr=w-640",
+      "alt": "TWS",
+      "title": "Truly Wireless Earbuds",
+      "priceHtml": "Starting at <strong>₹999</strong>"
+    },
+    {
+      "grad": "grad-blue",
+      "img": "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Small%20Appliances/Fans/Images/232311_0_zocKLmb1m.png?updatedAt=1770706572338?tr=w-640",
+      "alt": "Keyboard",
+      "title": "Keyboards & Mouse",
+      "priceHtml": "Up to <strong>75% Off</strong>"
+    },
+    {
+      "grad": "grad-orange",
+      "img": "https://media-ik.croma.com/prod/https://media.tatacroma.com/Croma%20Assets/Small%20Appliances/Fans/Images/232311_0_zocKLmb1m.png?updatedAt=1770706572338?tr=w-640",
+      "alt": "Microwave",
+      "title": "Microwave Ovens",
+      "priceHtml": "Starting at <strong>₹10,690</strong>"
+    }
+  ]
+}
