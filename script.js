@@ -5,21 +5,13 @@ function scrollRow(id, dir) {
   el.scrollBy({ left: dir * 280, behavior: "smooth" });
 }
 
-function escapeHtml(value) {
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-async function fetchCatalogData() {
-  const res = await fetch("catalog-data.json", { cache: "no-store" });
-  if (!res.ok) {
-    throw new Error(`Failed to load catalog data: ${res.status}`);
-  }
-  return res.json();
+function fetchCatalogData() {
+  return fetch("catalog-data.json", { cache: "no-store" }).then((res) => {
+    if (!res.ok) {
+      throw new Error(`Failed to load catalog data: ${res.status}`);
+    }
+    return res.json();
+  });
 }
 
 // CART
@@ -45,7 +37,8 @@ function showToast(msg, icon = "fa-check") {
 
   const toast = document.createElement("div");
   toast.className = "toast-msg";
-  toast.innerHTML = `<i class="fa ${icon}"></i><span>${escapeHtml(msg)}</span>`;
+  toast.innerHTML = `<i class="fa ${icon}"></i><span></span>`;
+  toast.querySelector("span").textContent = msg;
   wrap.appendChild(toast);
 
   setTimeout(() => {
@@ -269,6 +262,77 @@ function wireProductCards(container) {
   });
 }
 
+function buildProductDetailsUrl(product) {
+  const params = new URLSearchParams({
+    name: product.name || "Product",
+    price: product.price || "",
+    old: product.old || "",
+    img: product.img || "",
+    reviews: product.reviews || "",
+    stars: product.stars || "",
+    badge: product.badge || "",
+  });
+  return `product-details.html?${params.toString()}`;
+}
+
+function renderProductList(container, items, minWidth) {
+  if (!container) return;
+
+  let html = "";
+  const widthClass =
+    minWidth === 240 ? "scroll-item--240" : minWidth === 200 ? "scroll-item--200" : "scroll-item--220";
+
+  items.forEach((p) => {
+    html += `
+      <div class="scroll-item ${widthClass}">
+        <div class="product-card" data-details-url="${buildProductDetailsUrl(p)}">
+          <div class="product-img-wrap">
+            ${p.badge ? `<span class="badge-sale">${p.badge}</span>` : ""}
+            <img src="${p.img || ""}" alt="${p.name || "Product"}" data-fallback-src="https://placehold.co/200x150/1c1c28/00e5c3?text=Product">
+            <button type="button" class="wishlist-btn" aria-label="Toggle wishlist"><i class="fa fa-heart"></i></button>
+          </div>
+          <div class="product-body">
+            <div class="product-name">${p.name || ""}</div>
+            <div class="product-price">${p.price || ""} <span class="old">${p.old || ""}</span>${p.save ? ` <span class="save">${p.save}</span>` : ""}</div>
+            <div class="stars">${p.stars || ""} <span>${p.reviews || ""}</span></div>
+            <button type="button" class="add-cart-btn" data-cart-name="${p.cartName || "Item"}">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+
+  wireProductCards(container);
+}
+
+function renderDealList(container, items) {
+  if (!container) return;
+  let html = "";
+
+  items.forEach((d, idx) => {
+    html += `
+      <div class="col-6 col-md-3">
+        <div class="deal-card ${d.grad}" data-deal-idx="${idx}">
+          <img src="${d.img || ""}" alt="${d.alt || "Deal"}">
+          <div class="deal-card-title">${d.title || ""}</div>
+          <div class="deal-card-price">${d.priceHtml || ""}</div>
+        </div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+
+  container.querySelectorAll(".deal-card").forEach((card) => {
+    card.addEventListener("click", () => {
+      const deal = items[Number(card.dataset.dealIdx)];
+      if (deal && typeof deal.onClick === "function") deal.onClick();
+    });
+  });
+}
+
 function initCatalogPage() {
   const exclusivesEl = document.getElementById("exclusives");
   const bestsellersEl = document.getElementById("bestsellers");
@@ -279,113 +343,10 @@ function initCatalogPage() {
 
   fetchCatalogData()
     .then((data) => {
-      const exclusives = data.exclusives || [];
-      const bestsellers = data.bestsellers || [];
-      const phones = data.phones || [];
-      const deals = data.deals || [];
-
-      function buildProductDetailsUrl(product) {
-        const params = new URLSearchParams({
-          name: product.name || "Product",
-          price: product.price || "",
-          old: product.old || "",
-          img: product.img || "",
-          reviews: product.reviews || "",
-          stars: product.stars || "",
-          badge: product.badge || "",
-        });
-        return `product-details.html?${params.toString()}`;
-      }
-
-      function renderProducts(container, items, opts = {}) {
-        if (!container) return;
-
-        container.innerHTML = items
-          .map((p) => {
-            const badgeHtml = p.badge
-              ? `<span class="badge-sale">${escapeHtml(p.badge)}</span>`
-              : "";
-            const saveHtml = p.save ? ` <span class="save">${escapeHtml(p.save)}</span>` : "";
-            const minWidth = p.minWidth || opts.minWidth || 220;
-            const widthClass =
-              minWidth === 240
-                ? "scroll-item--240"
-                : minWidth === 220
-                  ? "scroll-item--220"
-                  : minWidth === 200
-                    ? "scroll-item--200"
-                    : "";
-            const detailsUrl = buildProductDetailsUrl(p);
-            const fallback =
-              "https://placehold.co/200x150/1c1c28/00e5c3?text=Product";
-
-            return `
-              <div class="scroll-item ${widthClass}">
-                <div class="product-card" data-details-url="${escapeHtml(detailsUrl)}">
-                  <div class="product-img-wrap">
-                    ${badgeHtml}
-                    <img src="${escapeHtml(p.img)}" alt="${escapeHtml(p.name)}" data-fallback-src="${fallback}">
-                    <button type="button" class="wishlist-btn" aria-label="Toggle wishlist"><i class="fa fa-heart"></i></button>
-                  </div>
-                  <div class="product-body">
-                    <div class="product-name">${escapeHtml(p.name)}</div>
-                    <div class="product-price">${escapeHtml(p.price)} <span class="old">${escapeHtml(p.old)}</span>${saveHtml}</div>
-                    <div class="stars">${escapeHtml(p.stars)} <span>${escapeHtml(p.reviews)}</span></div>
-                    <button type="button" class="add-cart-btn" data-cart-name="${escapeHtml(p.cartName)}">Add to Cart</button>
-                  </div>
-                </div>
-              </div>
-            `;
-          })
-          .join("");
-
-        wireProductCards(container);
-      }
-
-      function renderDeals(container, items) {
-        if (!container) return;
-        container.innerHTML = "";
-
-        items.forEach((d, idx) => {
-          const col = document.createElement("div");
-          col.className = "col-6 col-md-3";
-
-          const card = document.createElement("div");
-          card.className = `deal-card ${d.grad}`;
-          card.dataset.dealIdx = String(idx);
-
-          const img = document.createElement("img");
-          img.src = d.img;
-          img.alt = d.alt;
-
-          const title = document.createElement("div");
-          title.className = "deal-card-title";
-          title.textContent = d.title;
-
-          const price = document.createElement("div");
-          price.className = "deal-card-price";
-          price.innerHTML = d.priceHtml;
-
-          card.appendChild(img);
-          card.appendChild(title);
-          card.appendChild(price);
-          col.appendChild(card);
-          container.appendChild(col);
-        });
-
-        container.querySelectorAll(".deal-card").forEach((card) => {
-          card.addEventListener("click", () => {
-            const idx = Number(card.dataset.dealIdx);
-            const deal = items[idx];
-            if (deal && typeof deal.onClick === "function") deal.onClick();
-          });
-        });
-      }
-
-      renderProducts(exclusivesEl, exclusives, { minWidth: 240 });
-      renderProducts(bestsellersEl, bestsellers, { minWidth: 220 });
-      renderProducts(phonesEl, phones, { minWidth: 200 });
-      renderDeals(dealsEl, deals);
+      renderProductList(exclusivesEl, data.exclusives || [], 240);
+      renderProductList(bestsellersEl, data.bestsellers || [], 220);
+      renderProductList(phonesEl, data.phones || [], 200);
+      renderDealList(dealsEl, data.deals || []);
     })
     .catch((err) => {
       console.error(err);
